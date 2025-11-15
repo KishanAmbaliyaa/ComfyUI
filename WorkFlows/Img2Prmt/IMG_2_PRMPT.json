@@ -1,0 +1,257 @@
+{
+  "id": "3970a487-13d8-4215-95be-feed38d1121a",
+  "revision": 0,
+  "last_node_id": 4,
+  "last_link_id": 4,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "pos": [
+        1383.5081787109375,
+        1260.5682373046875
+      ],
+      "size": [
+        274.080078125,
+        314
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.40",
+        "Node name for S&R": "LoadImage",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "new_00001_ (1).png",
+        "image"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "Florence2Run",
+      "pos": [
+        1749.69482421875,
+        1257.114013671875
+      ],
+      "size": [
+        400,
+        369
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1
+        },
+        {
+          "name": "florence2_model",
+          "type": "FL2MODEL",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": []
+        },
+        {
+          "name": "caption",
+          "type": "STRING",
+          "links": [
+            4
+          ]
+        },
+        {
+          "name": "data",
+          "type": "JSON",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-florence2",
+        "ver": "1.0.5",
+        "Node name for S&R": "Florence2Run",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "",
+        "more_detailed_caption",
+        true,
+        false,
+        1024,
+        3,
+        true,
+        "",
+        410447411420344,
+        "randomize"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "easy showAnything",
+      "pos": [
+        2322.004638671875,
+        1353.842041015625
+      ],
+      "size": [
+        457.20391845703125,
+        300.2527770996094
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "1.3.0",
+        "Node name for S&R": "easy showAnything",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "A photo-realistic close-up portrait of a young woman with pale skin and blue eyes, wearing a red hooded cloak with intricate mechanical parts on her head and shoulders. she has a serious expression and is positioned in the middle of the frame, looking directly at the camera. the woman appears to be in her late teens or early twenties, with light skin, dark brown hair, and freckles on her face. her eyes are a striking blue color, and she is wearing a black choker around her neck. on her forehead, there is a metallic faceplate with intricate designs, giving her a futuristic and edgy look. the hood of her hood is pulled up, exposing her upper body, and the hood is adorned with red fabric. the background is blurred, with a hint of industrial setting, suggesting that the photo was taken in a dimly lit environment. the overall mood of the image is mysterious and futuristic, with the focus on the woman's face and body parts, making it a captivating and mysterious image."
+      ]
+    },
+    {
+      "id": 3,
+      "type": "DownloadAndLoadFlorence2Model",
+      "pos": [
+        1327.0833740234375,
+        1644.02734375
+      ],
+      "size": [
+        318.6021423339844,
+        130
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "lora",
+          "shape": 7,
+          "type": "PEFTLORA",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "florence2_model",
+          "type": "FL2MODEL",
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-florence2",
+        "ver": "1.0.5",
+        "Node name for S&R": "DownloadAndLoadFlorence2Model",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "MiaoshouAI/Florence-2-large-PromptGen-v2.0",
+        "fp32",
+        "sdpa",
+        false
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "IMAGE"
+    ],
+    [
+      2,
+      3,
+      0,
+      2,
+      1,
+      "FL2MODEL"
+    ],
+    [
+      4,
+      2,
+      2,
+      4,
+      0,
+      "*"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8769226950000008,
+      "offset": [
+        -860.3822553975187,
+        -1099.3300189345985
+      ]
+    },
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "frontendVersion": "1.28.8",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}

@@ -1,0 +1,1132 @@
+{
+  "id": "faf19411-e209-4904-ad97-d7775655c81d",
+  "revision": 0,
+  "last_node_id": 60,
+  "last_link_id": 119,
+  "nodes": [
+    {
+      "id": 35,
+      "type": "UpscaleModelLoader",
+      "pos": [
+        12447.8212890625,
+        1574.4224853515625
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "UPSCALE_MODEL",
+          "type": "UPSCALE_MODEL",
+          "links": [
+            57
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.38",
+        "Node name for S&R": "UpscaleModelLoader",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "4x-UltraSharp.pth"
+      ]
+    },
+    {
+      "id": 42,
+      "type": "Save Image With Prompt Data",
+      "pos": [
+        12463.6630859375,
+        1193.7498779296875
+      ],
+      "size": [
+        288.9751892089844,
+        342
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 82
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "mikey_nodes",
+        "ver": "99dca30a008e6385218342369a9f15eb4636f26f",
+        "Node name for S&R": "Save Image With Prompt Data",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "Positive Prompt",
+        "Negative Prompt",
+        "WildCardXL/new",
+        "1"
+      ]
+    },
+    {
+      "id": 45,
+      "type": "Florence2Run",
+      "pos": [
+        10368.7880859375,
+        1328.8175048828125
+      ],
+      "size": [
+        400,
+        572
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 88
+        },
+        {
+          "name": "florence2_model",
+          "type": "FL2MODEL",
+          "link": 89
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": []
+        },
+        {
+          "name": "caption",
+          "type": "STRING",
+          "links": [
+            91
+          ]
+        },
+        {
+          "name": "data",
+          "type": "JSON",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-florence2",
+        "ver": "1.0.5",
+        "Node name for S&R": "Florence2Run",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "",
+        "more_detailed_caption",
+        true,
+        false,
+        1024,
+        3,
+        true,
+        "",
+        364145913871771,
+        "randomize"
+      ]
+    },
+    {
+      "id": 43,
+      "type": "SaveImage",
+      "pos": [
+        10962.0693359375,
+        1779.85498046875
+      ],
+      "size": [
+        270,
+        270
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 87
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.40",
+        "Node name for S&R": "SaveImage",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 46,
+      "type": "DownloadAndLoadFlorence2Model",
+      "pos": [
+        9946.1767578125,
+        1715.7308349609375
+      ],
+      "size": [
+        318.6021423339844,
+        130
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "lora",
+          "shape": 7,
+          "type": "PEFTLORA",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "florence2_model",
+          "type": "FL2MODEL",
+          "links": [
+            89
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-florence2",
+        "ver": "1.0.5",
+        "Node name for S&R": "DownloadAndLoadFlorence2Model",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "MiaoshouAI/Florence-2-large-PromptGen-v2.0",
+        "fp32",
+        "sdpa",
+        false
+      ]
+    },
+    {
+      "id": 44,
+      "type": "LoadImage",
+      "pos": [
+        10002.6015625,
+        1332.271728515625
+      ],
+      "size": [
+        274.080078125,
+        314
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            88
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.40",
+        "Node name for S&R": "LoadImage",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "ComfyUI_00978_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 47,
+      "type": "easy showAnything",
+      "pos": [
+        10840.0634765625,
+        1051.6177978515625
+      ],
+      "size": [
+        457.20391845703125,
+        300.2527770996094
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 91
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "1.3.0",
+        "Node name for S&R": "easy showAnything",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "A photo-realistic shoot from behind about a samurai warrior stands confidently in a traditional japanese setting, wearing ornate armor and carrying a sword. the image captures a samurai standing in the middle of the image, facing away from the viewer, with his back to the viewer. he is wearing a dark blue samurai outfit with intricate gold embroidery and a long, flowing skirt that reaches down to his ankles. his hair is tied back in a neat bun, and he has a serious expression on his face. in the background, two tall pagodas with intricate designs stand tall against a cloudy sky, surrounded by autumn-colored trees and rocks, creating a serene and peaceful atmosphere. the samurai is equipped with a samurai sword and shoulder armor, and his posture suggests a sense of strength and determination."
+      ]
+    },
+    {
+      "id": 34,
+      "type": "PreviewImage",
+      "pos": [
+        11365.4560546875,
+        1764.6412353515625
+      ],
+      "size": [
+        803.443115234375,
+        405.0093688964844
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 54
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.38",
+        "Node name for S&R": "PreviewImage",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 23,
+      "type": "EmptyLatentImage",
+      "pos": [
+        11364.43359375,
+        1379.38916015625
+      ],
+      "size": [
+        375.38897705078125,
+        106
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.38",
+        "Node name for S&R": "EmptyLatentImage",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        576,
+        1024,
+        1
+      ]
+    },
+    {
+      "id": 32,
+      "type": "KSampler",
+      "pos": [
+        12169.8759765625,
+        1193.0675048828125
+      ],
+      "size": [
+        270,
+        474
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 72
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 47
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 48
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 119
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            35
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.38",
+        "Node name for S&R": "KSampler",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        194199800990573,
+        "increment",
+        7,
+        2,
+        "euler",
+        "normal",
+        1
+      ]
+    },
+    {
+      "id": 36,
+      "type": "UltimateSDUpscale",
+      "pos": [
+        12167.16796875,
+        1493.581787109375
+      ],
+      "size": [
+        267.52587890625,
+        826
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 59
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 67
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 61
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 62
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 63
+        },
+        {
+          "name": "upscale_model",
+          "type": "UPSCALE_MODEL",
+          "link": 57
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            58,
+            82
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_ultimatesdupscale",
+        "ver": "d033884dbcd18bb43cc9ff70a0b13164bff4d333",
+        "Node name for S&R": "UltimateSDUpscale",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        2.0000000000000004,
+        5714300949270,
+        "increment",
+        7,
+        3,
+        "euler",
+        "simple",
+        0.4000000000000001,
+        "Linear",
+        1440,
+        2560,
+        8,
+        32,
+        "None",
+        1,
+        64,
+        8,
+        16,
+        true,
+        false
+      ]
+    },
+    {
+      "id": 25,
+      "type": "CLIPTextEncode",
+      "pos": [
+        11763.3251953125,
+        1523.0848388671875
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 74
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            48,
+            62
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.38",
+        "Node name for S&R": "CLIPTextEncode",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "(top-down, aerial, anime, cartoon, stylized, fantasy, buildings beside highway, lowres, extra land, clutter, text, UI, watermark:1.3),3d, cartoon, anime, sketches, (worst quality:2), (low quality:2), (normal quality:2), lowres, normal quality, ((monochrome)), ((grayscale)), skin spots, acnes, skin blemishes, loli, young, large breasts, red eyes, muscular, bad hands, headphones, headset, glasses, zombie, nude, naked\n"
+      ]
+    },
+    {
+      "id": 31,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        11370.193359375,
+        1250.25341796875
+      ],
+      "size": [
+        370.6700439453125,
+        98
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            67,
+            71
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            70,
+            100
+          ]
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            36,
+            63
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.38",
+        "Node name for S&R": "CheckpointLoaderSimple",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "wildcardxXL20LIGHTING.C4hI.safetensors"
+      ]
+    },
+    {
+      "id": 37,
+      "type": "Image Comparer (rgthree)",
+      "pos": [
+        12869.34608852809,
+        1370.9779190915633
+      ],
+      "size": [
+        1516.587646484375,
+        890.821533203125
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "image_a",
+          "type": "IMAGE",
+          "link": 58
+        },
+        {
+          "dir": 3,
+          "name": "image_b",
+          "type": "IMAGE",
+          "link": 64
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "1.0.2505260747",
+        "comparer_mode": "Slide",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        [
+          {
+            "name": "A",
+            "selected": true,
+            "url": "/api/view?filename=rgthree.compare._temp_hfcvn_00149_.png&type=temp&subfolder=&rand=0.33313249736327943"
+          },
+          {
+            "name": "B",
+            "selected": true,
+            "url": "/api/view?filename=rgthree.compare._temp_hfcvn_00150_.png&type=temp&subfolder=&rand=0.20770552127733832"
+          }
+        ]
+      ]
+    },
+    {
+      "id": 39,
+      "type": "Power Lora Loader (rgthree)",
+      "pos": [
+        11738.9453125,
+        1257.5909423828125
+      ],
+      "size": [
+        422.9101867675781,
+        238
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "model",
+          "type": "MODEL",
+          "link": 71
+        },
+        {
+          "dir": 3,
+          "name": "clip",
+          "type": "CLIP",
+          "link": 70
+        }
+      ],
+      "outputs": [
+        {
+          "dir": 4,
+          "name": "MODEL",
+          "shape": 3,
+          "type": "MODEL",
+          "links": [
+            72
+          ]
+        },
+        {
+          "dir": 4,
+          "name": "CLIP",
+          "shape": 3,
+          "type": "CLIP",
+          "links": [
+            74
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "1.0.2505212136",
+        "Show Strengths": "Single Strength",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        {},
+        {
+          "type": "PowerLoraLoaderHeaderWidget"
+        },
+        {
+          "on": true,
+          "lora": "SDXL\\add-detail-xl.safetensors",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "MJ52.safetensors",
+          "strength": 0.2,
+          "strengthTwo": null
+        },
+        {
+          "on": true,
+          "lora": "SDXL\\detailed_notrigger.safetensors",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": true,
+          "lora": "SDXL\\MoriiMee_Gothic_Niji_Style_Illustrious_r1.safetensors",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {},
+        ""
+      ]
+    },
+    {
+      "id": 27,
+      "type": "VAEDecode",
+      "pos": [
+        12473.991939006659,
+        1678.0603286492808
+      ],
+      "size": [
+        279.9942932128906,
+        494.2963562011719
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 35
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 36
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            54,
+            59,
+            64,
+            87
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.38",
+        "Node name for S&R": "VAEDecode",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 41,
+      "type": "EmptyLatentImage",
+      "pos": [
+        10944.357421875,
+        1449.4481201171875
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            119
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.38",
+        "Node name for S&R": "EmptyLatentImage",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        1920,
+        1080,
+        1
+      ]
+    },
+    {
+      "id": 33,
+      "type": "CLIPTextEncode",
+      "pos": [
+        11362.16796875,
+        1519.965087890625
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 100
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            47,
+            61
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.38",
+        "Node name for S&R": "CLIPTextEncode",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {}
+        }
+      },
+      "widgets_values": [
+        "Create an ultra-high-detail portrait of a small fire-type reptilian creature resembling a young salamander with a warm, glowing flame burning at the tip of its tail. The creature stands centered inside a natural frame of blurred foreground leaves, as if photographed through foliage. Its large glossy eyes reflect the soft light sources, giving an expressive, curious look.\nCamera: 85mm f/1.4 portrait lens, shallow depth of field, creamy bokeh background with circular highlights.\nLighting: soft warm key light from the front, subtle orange rim light from the tail flame illuminating edges of its body.\nTextures: smooth slightly reflective skin, subtle micro-scales, soft warm gradient tones from yellow to deep orange.\nComposition: tight mid-shot, framed by out-of-focus foreground shapes, subject perfectly centered, eyes sharp, background fully blurred into pastel bokeh.\nRendering: ultra-realistic, high dynamic range, cinematic warmth, crisp detailing on the flame with tiny ember particles drifting around."
+      ]
+    }
+  ],
+  "links": [
+    [
+      35,
+      32,
+      0,
+      27,
+      0,
+      "LATENT"
+    ],
+    [
+      36,
+      31,
+      2,
+      27,
+      1,
+      "VAE"
+    ],
+    [
+      47,
+      33,
+      0,
+      32,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      48,
+      25,
+      0,
+      32,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      54,
+      27,
+      0,
+      34,
+      0,
+      "IMAGE"
+    ],
+    [
+      57,
+      35,
+      0,
+      36,
+      5,
+      "UPSCALE_MODEL"
+    ],
+    [
+      58,
+      36,
+      0,
+      37,
+      0,
+      "IMAGE"
+    ],
+    [
+      59,
+      27,
+      0,
+      36,
+      0,
+      "IMAGE"
+    ],
+    [
+      61,
+      33,
+      0,
+      36,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      62,
+      25,
+      0,
+      36,
+      3,
+      "CONDITIONING"
+    ],
+    [
+      63,
+      31,
+      2,
+      36,
+      4,
+      "VAE"
+    ],
+    [
+      64,
+      27,
+      0,
+      37,
+      1,
+      "IMAGE"
+    ],
+    [
+      67,
+      31,
+      0,
+      36,
+      1,
+      "MODEL"
+    ],
+    [
+      70,
+      31,
+      1,
+      39,
+      1,
+      "CLIP"
+    ],
+    [
+      71,
+      31,
+      0,
+      39,
+      0,
+      "MODEL"
+    ],
+    [
+      72,
+      39,
+      0,
+      32,
+      0,
+      "MODEL"
+    ],
+    [
+      74,
+      39,
+      1,
+      25,
+      0,
+      "CLIP"
+    ],
+    [
+      82,
+      36,
+      0,
+      42,
+      0,
+      "IMAGE"
+    ],
+    [
+      87,
+      27,
+      0,
+      43,
+      0,
+      "IMAGE"
+    ],
+    [
+      88,
+      44,
+      0,
+      45,
+      0,
+      "IMAGE"
+    ],
+    [
+      89,
+      46,
+      0,
+      45,
+      1,
+      "FL2MODEL"
+    ],
+    [
+      91,
+      45,
+      2,
+      47,
+      0,
+      "*"
+    ],
+    [
+      100,
+      31,
+      1,
+      33,
+      0,
+      "CLIP"
+    ],
+    [
+      119,
+      41,
+      0,
+      32,
+      3,
+      "LATENT"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.45,
+      "offset": [
+        -9511.056857638889,
+        -721.0761990017361
+      ]
+    },
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "frontendVersion": "1.28.8",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
